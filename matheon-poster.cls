@@ -132,7 +132,7 @@
 \@defInstituteOption{FU}
     %{Freie Universit\"at Berlin\\\@matheonurl{www.fu-berlin.de}}
     {Royal Institute of Technology \\ Stockholm}
-    {\includegraphics[width=\linewidth]{tud_logo}}
+    {\includegraphics[width=\linewidth]{SSC_Delft_new}}
 
 \@defInstituteOption{HU}
 %    {Humboldt-Universit\"at zu Berlin\\\@matheonurl{www.hu-berlin.de}}
