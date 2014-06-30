@@ -1,0 +1,251 @@
+\documentclass[FU]{matheon-poster}
+% load some useful latex symbols:
+\usepackage{latexsym}
+% define names for even more symbols:
+\usepackage{textcomp}
+% define several useful macros for typesetting mathematics:
+\usepackage{amsmath,amssymb}
+% load mathematic fonts:
+\usepackage{amsfonts}
+% for typesetting paragraphs in a special form:
+\usepackage{shapepar}
+% for setting the examples
+\usepackage{alltt}
+% for extended possibilities in setting arrays and tables
+\usepackage{array}
+% For typesetting boxes
+\usepackage[oldboxesoff]{poster-boxes}
+
+\usepackage{color}
+\usepackage{tabularx}
+\usepackage{multirow}
+\usepackage{enumitem}
+
+\newcolumntype{C}{>{\centering\arraybackslash}X}
+%\newcommand{\shortitemize}{itemsep=0.25\itemsep,parsep=0.25\parsep,topsep=0.25\topsep,partopsep=0.25\partopsep}
+\newenvironment{shortitemize}{\begin{itemize}[itemsep=0.25\itemsep,parsep=0.25\parsep,topsep=0.25\topsep,partopsep=0.25\partopsep]}{\end{itemize}}
+
+% You can define colors as follows:
+\definecolor{light-red}{rgb}{1, 0.59, 0.59}
+\newcommand{\leftcolspace}{0.025\contentswidth}
+\newcommand{\leftcolwidth}{0.6\contentswidth}
+\newcommand{\rightcolspace}{0.65\contentswidth}
+\newcommand{\rightcolwidth}{0.325\contentswidth}
+\newcommand{\contwidth}{0.95\contentswidth}
+
+
+\definecolor{question}{rgb}{0.29,0.29,0.73}
+
+%Mathcal
+\newcommand{\T}{\mathcal{T}}
+\newcommand{\E}{\mathcal{E}}
+\newcommand{\K}{\mathcal{K}}
+\newcommand{\M}{\mathcal{M}}
+\newcommand{\I}{\mathcal{I}}
+\newcommand{\J}{\mathcal{J}}
+\newcommand{\C}{\mathcal{C}}
+\newcommand{\A}{\mathcal{A}}
+
+%Mathbb
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+
+\DeclareMathOperator{\res}{Res}
+\DeclareMathOperator{\osc}{osc}
+\renewcommand{\div}{\textrm{div}}
+\newcommand{\Jump}[1]{\lbrack #1 \rbrack \!\cdot\! \nu_E}
+\newcommand{\jump}[1]{\lbrack #1 \rbrack}
+
+\newcommand{\bnorm}[1]{\lVert #1 \rVert}
+\newcommand{\anorm}[1]{\lvert\!\lvert\!\lvert#1 \rvert\!\rvert\!\rvert}
+\newcommand{\norm}[2]{\lVert #1 \rVert_{#2}}
+\newcommand{\Norm}[2]{\big\lVert #1\big\rVert_{#2}}
+\newcommand{\snorm}[2]{\lvert #1 \rvert_{#2}}
+\newcommand{\abs}[1]{\lvert #1 \rvert}
+
+\newcommand{\hmax}{\norm{h_\ell}{L^\infty(\Omega)}}
+
+
+\makeatletter
+  \newcommand\huuge{\@setfontsize\huuge{18.5pt}{20}}
+\makeatother
+
+%---------------------------------------------------------------------------
+\begin{document}
+\titlebox {Scientific Computing, SPH, Solidification, Melting Process}
+{\textit{The thirty-eighth Woudschoten Conference in Zeist, The Netherlands}}
+{\huuge SIAM Student Chapter at TU Delft}
+{\underline{M. Baumann} \quad M. B. van Gijzen \hspace{6.3cm} October 2013}
+
+
+\begin{pspicture}(0,0)(\contentswidth,\contentsheight)
+
+\rput[tl](\leftcolspace,233mm){
+  \posterroundedtabshadowbox{white}{\fbsdefault}{\leftcolwidth}{\large Application}{
+    \small\raggedright
+\textbf{\underline{Geo-scientists want to analyze the earth interior:}}
+\smallskip
+\begin{shortitemize}
+ \item The earth interior consists of several layers with different physical properties,
+ \item Seismic exploration: send sound waves into the earth and analyze their reflection behavior,
+ \item The properties of an oil reservoir can be derived by matching experimental and nu\-me\-ri\-cal results within an optimization loop.
+\end{shortitemize}
+  }
+}
+
+\rput[tl](\rightcolspace,233mm){
+  \posterroundedshadowbox{white}{4.5mm}{\rightcolwidth}{
+    \small\raggedright \rnode{b}{
+	\includegraphics[scale=0.27]{Seismic}}
+	\centerline{Fig. 1: Wave propagation through the earth}
+
+}
+}
+
+\rput[tl](\rightcolspace,183mm){
+  \posterroundedshadowbox{white}{1.5mm}{\rightcolwidth}{
+    \small\raggedright \rnode{c}{
+	%\centering
+	\vspace{-0.2cm}
+	\includegraphics[scale=0.28]{all6_new}}
+	\vspace{-0.5cm}{
+	\centerline{Fig. 2: Solution of \eqref{LEW} on $\Omega = [0,1] \times [0,1]$}
+	\centerline{with point source $\mathbf{r} \equiv \boldsymbol{\delta}(\mathbf{x}-(0.5,0.5)^T)$}
+	\centerline{and absorbing boundary conditions ($\gamma = 1$)}}
+}
+}
+  
+\rput[tl](\rightcolspace,93.0mm){
+  \posterroundedtabshadowbox{white}{3.5mm}{\rightcolwidth}{\large Results}{
+    \small\raggedright \rnode{c}{
+	\centering
+	\hspace{-0.3cm}\includegraphics[scale=0.21]{all6_conv5}}
+	%\hspace{-0.2cm}\includegraphics[scale=0.20]{all6_conv3}
+	%\hspace{-0.3cm}\includegraphics[scale=0.20]{speedUp1}}
+	\vspace{-0.5cm}{
+	\centerline{Fig. 3: Convergence of multi-shift IDR(1)}
+	\centerline{is obtained \color{red} $\sim 3.7$  times faster \color{black} than}
+	\centerline{the consecutive solution of \eqref{discrVersion2}}}
+}
+}
+
+
+\rput[tl](17.1cm,32mm){
+  \posterroundedshadowbox{white}{2mm}{3.3cm}{
+    %\small\raggedright \rnode{c}{
+	\centering
+	\includegraphics[scale=0.33]{qrcode}}
+%}
+}
+
+
+
+\rput[tl](\leftcolspace,189.5mm){
+  \posterroundedtabshadowbox{white}{\fbsdefault}{\leftcolwidth}{\large The mathematical model}{
+    \small\raggedright
+  	\textbf{\underline{Time-harmonic elastic wave equation:}}
+	\smallskip
+	For many \color{blue} angular frequencies $\omega_j$\color{black}, we assume as a test problem a homogeneous medium and aim to solve:
+	\abovedisplayskip=2mm
+	\belowdisplayskip=1mm
+	\begin{equation}
+	\begin{split}
+	    \label{LEW}
+	    -\mu \Delta \mathbf{u} - (\mu + \lambda) \nabla (\nabla \cdot \mathbf{u}) - \color{blue}\omega_j^2\color{black} \rho_s \mathbf{u} &= \mathbf{r}, \quad \text{in } \Omega \subset \R^{D}, \\
+	    i \gamma \color{blue}\omega_j\color{black} \rho_s B \mathbf{u} + \left[\lambda (\nabla \cdot \mathbf{u}) + \mu \left( \nabla \mathbf{u} + (\nabla \mathbf{u})^T \right)\right] \mathbf{n}&= 0, \quad \text{on } \partial \! \Omega,
+	\end{split}	    
+	\end{equation}
+	where
+	\begin{shortitemize}
+		\item $\mathbf{u} \in \R^{D}$ is the displacement vector in two ($D=2$) or three ($D=3$) dimensions,
+		\item $\mu, \lambda$ are the so-called Lam\'e parameters, 
+		\item $\rho_s \in \R$ is the (constant) material density,
+		\item $B$ is defined componentwise, $B_{i,j} \equiv c_p n_i n_j + c_s t_i t_j$, for $D = 2$.
+	\end{shortitemize}
+	\\ \vspace{0.2cm}
+	\textbf{\underline{Spatial discretization:}}
+	\smallskip
+	After FEM-discretization, we obtain the linear systems
+	\abovedisplayskip=1mm
+	\belowdisplayskip=2mm
+	\begin{align}
+	    \label{discrVersion}
+	    (K + i \color{blue}\omega_j\color{black} C - \color{blue}\omega_j^2\color{black} M)\underline{\mathbf{u}} = \underline{\mathbf{r}},
+	\end{align}
+	with $K,C,M$ being symmetric and sparse. Here, $C$ contains the boundary conditions.
+  }
+}
+
+\rput[tl](\leftcolspace,109.7mm){
+  \posterroundedtabshadowbox{white}{\fbsdefault}{\leftcolwidth}{\large Our approach}{
+    \small\raggedright
+  	\textbf{\underline{Shifted linear systems:}}
+	\smallskip
+	Note that we can re-write \eqref{discrVersion} as:
+	\abovedisplayskip=2mm
+	\begin{align}
+	    \label{discrVersion2}
+	    \left[\begin{pmatrix} i M^{-1}C & M^{-1}K \\ I & 0\end{pmatrix} - \color{blue}\omega_j\color{black} \begin{pmatrix} I & 0 \\ 0 & I\end{pmatrix} \right] \begin{pmatrix} \color{blue}\omega_j\color{black} \underline{\mathbf{u}} \\  \underline{\mathbf{u}}\end{pmatrix} = \begin{pmatrix} M^{-1}\underline{\mathbf{r}} \\ 0\end{pmatrix},
+	    %(M^{-1}K - \omega^2 I)\underline{\mathbf{u}} = M^{-1}\underline{\mathbf{f}}.
+	\end{align}
+	\smallskip
+	which is of the form
+	\abovedisplayskip=0.5mm
+	\belowdisplayskip=2mm
+	\begin{align}
+	    \label{shiftedLS}
+	    (A - \color{blue}\omega_j\color{black} I) \mathbf{x}_j = \mathbf{b}, \quad j = 1,...,N.
+	\end{align}
+	Idea for simultaneous solve: Krylov subspaces are \color{red}shift-invariant\color{black}, i.e.
+	\abovedisplayskip=2mm
+	\begin{align*}
+	    \mathcal{K}_i(b,A) \equiv \text{span }\{b,Ab,...,A^{i-1}b \} = \mathcal{K}_i(b,A-\color{blue}\omega\color{black} I), \quad \text{for all } \color{blue}\omega\color{black} \in \R.
+	\end{align*}
+	\\ \vspace{0.1cm}
+	\textbf{\underline{Future work:}}
+	\smallskip
+	\begin{shortitemize}
+	\item Implement a more realistic test case for $D = 3$ and inhomogeneous material,
+	\item Improve preconditioners for shifted Krylov methods,
+	\item Consider multiple right-hand sides in \eqref{shiftedLS} as well.
+	\end{shortitemize}
+	
+  }
+}
+
+
+
+
+\rput[tl](\leftcolspace,32mm){
+  \posterroundedtabshadowbox{white}{\fbsdefault}{16cm}{\large References}{
+
+  \renewcommand\refname{\vskip -0.4cm}
+ 
+  \begin{thebibliography}{10}
+  \small\setlength{\parskip}{0cm}
+  \bibitem{1}
+  M. B. van Gijzen, G. L. G. Sleijpen, J.-P. M. Zemke
+  \newblock {\em Flexible and multi-shift Induced Dimension Reduction algorithm for solving large sparse linear systems.}
+  \newblock Report 11-06, DIAM, TU Delft, 2011.
+  \bibitem{2}
+  M. I. Ahmad, D. B. Szyld, M. B. van Gijzen
+  \newblock {\em Preconditioned multishift {B}i{CG} for $\mathcal{H}_2$-optimal model reduction.}
+  \newblock Report 12-06-15, Temple University, 2013.
+  %bibitem{numTests}
+  %T. Airaksinen, A. Pennanen, J. Toivanen
+  %\newblock {\em A damping preconditioner for time-harmonic wave equations in fluid and elastic material.}
+  %\newblock Journal of Computational Physics, 228 (5), 1466-1479, 2009.
+  %\bibitem{Preond}
+  %A. K. Saibaba, T. Bakhos, P. K. Kitanidis
+  %\newblock {\em A Flexible Krylov Solver for Shifted Systems with Application to Oscillatory Hydraulic Tomography}
+  %\newblock \texttt{arXiv:1212.3660v1 [math.NA]}, 2012.
+%  \bibitem{H08}
+%  M. Heinkenschloss
+%  \newblock {\em Numerical solution of implicitly constrained optimization problems}
+%  \newblock Technical report, Department of Computational and Applied Mathematics, Rice University, 2008.
+  \end{thebibliography}
+    }
+}
+
+\end{pspicture}
+\end{document}
