@@ -383,10 +383,10 @@
   \newcommand{\@MatheonText}{%
     \centering
     \@matheontextfont
-    Sponsored by:
-    \\ \vspace{0.2cm}
-    \includegraphics[scale=0.08]{Shell_logo_joost}\\
-    \includegraphics[scale=0.08]{Shell_logo_joost}
+    %Sponsored by:
+    %\\ \vspace{0.2cm}
+    \includegraphics[scale=0.6]{TU_d_line_P1_full_color}\\
+    \includegraphics[scale=0.3]{SIAM_blueRGB}
     %\@matheontextfont
     %\\ \vspace{0.2cm}
     %Project Course in\\
