@@ -385,7 +385,8 @@
     \@matheontextfont
     Sponsored by:
     \\ \vspace{0.2cm}
-    \includegraphics[scale=0.11]{Shell_logo_joost}
+    \includegraphics[scale=0.08]{Shell_logo_joost}\\
+    \includegraphics[scale=0.08]{Shell_logo_joost}
     %\@matheontextfont
     %\\ \vspace{0.2cm}
     %Project Course in\\
