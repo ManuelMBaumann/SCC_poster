@@ -534,7 +534,7 @@
      \parbox[t][\@domainboxheight][c]{\textwidth}{%
       \centering
         \parbox{0.95\textwidth}{%
-	\textbf{Keywords: \ SIAM, \ TU Delft, \ Applied Mathematics, \ Computer Science, \ Social Activities, \ Interdisciplinary}
+	\textbf{Keywords: \ SIAM, \ TU Delft, \ Applied Mathematics, \ Computer Science, \ Social Activities, \ Interdisciplinary Science.}
         }%
      }%
    }%
