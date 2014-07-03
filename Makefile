@@ -1,19 +1,7 @@
-
-POSTER=poster.pdf
+poster.pdf: poster.tex
+	lualatex poster.tex
+	lualatex poster.tex
 
 .PHONY: clean
-
-poster: $(POSTER)
-
 clean:
-	rm *.aux *.log *.dvi *.ps
-
-%.pdf: %.ps
-	ps2pdf $<
-
-%.ps: %.dvi
-	dvips -t a4 $<
-
-%.dvi: %.tex matheon-poster.cls
-	latex $<
-
+	rm poster.aux poster.log poster.pdf
