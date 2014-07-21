@@ -79,7 +79,7 @@
 
 \def\setnewlength#1#2{%
   \newlength{#1}%
-  \setlength{#1}{#2}}
+  \deflength{#1}{#2}}
 
 \setnewlength\safetymargin{3cm}
 \setnewlength\headerheight{.2\paperwidth}
@@ -87,6 +87,7 @@
 \setnewlength\headeryellowbarlength{.8\paperwidth}
 \setnewlength\footerheight{.1\paperwidth}
 \setnewlength\footercontentheight{.6\footerheight}
+\setnewlength\textboxinnermargin{1em}
 
 % style colors
 
@@ -105,12 +106,12 @@
   \def\textboxalign{#3}%
   \def\textboxwidth{#4}%
   \def\textboxtitle{#5}%
-  \node[fill=white,draw=LDtextborder,inner sep=1em,shift={(0,-2em)},rounded corners=.5ex] (contents #1) at (#2) [#3] \bgroup%
+  \node[fill=white,draw=LDtextborder,inner sep=\textboxinnermargin,shift={(0,-2\textboxinnermargin)},rounded corners=.5ex] (contents #1) at (#2) [#3] \bgroup%
     \begin{minipage}{#4}}%
 \def\endtextbox{%
     \end{minipage}%
   \egroup;%
-  \node[black,inner sep=0pt,shift={(1em,0.65em)}] at (contents \textboxname.north west) [above right] {%
+  \node[black,inner sep=0pt,shift={(\textboxinnermargin,0.65em)}] at (contents \textboxname.north west) [above right] {%
     \large\sffamily\bfseries\textboxtitle};
 }
 
@@ -142,27 +143,26 @@
 % header
 
 \fill[color=LDblue] ($(current page.north west)+(-\safetymargin,+\safetymargin)$) rectangle ($(current page.north east)+(+\safetymargin,-\headerheight)$);
-\draw[color=LDyellowborder,fill=LDyellow,rounded corners=.5ex] ($(current page.north west)-(\safetymargin,\headerheight)+.5*(0cm,\headeryellowbarheight)$) rectangle ($(current page.north west)+(\headeryellowbarlength,-\headerheight)-.5*(0cm,\headeryellowbarheight)$);
+\draw[color=LDyellowborder,fill=LDyellow,rounded corners=.5ex] ($(current page.north west)+(-\safetymargin,-\headerheight+.5\headeryellowbarheight)$) rectangle ($(current page.north west)+(\headeryellowbarlength,-\headerheight-.5\headeryellowbarheight)$);
 \node[color=white] at ($(current page.north)-(0,.4\headerheight)$) {%
   \sffamily\bfseries\fontsize{100}{100}\selectfont%
   SIAM Student Chapter Delft};%
 \node[color=white] at ($(current page.north)-(0,.65\headerheight)$) {%
   \sffamily\fontsize{60}{60}\selectfont%
   Delft University of Technology};
-\node[color=black] at ($(current page.north west)-(-7.1*\safetymargin,\headerheight)$){%
+\node[color=black,right,inner sep=0pt] at ($(current page.north west)+(3cm+\textboxinnermargin,-\headerheight)$) {%
   \sffamily\fontsize{45}{45}\selectfont%
   \textbf{Visit our homepage:} \quad \href{http://sscdelft.github.io}{http://sscdelft.github.io}};
-  
+
 % footer
 
-\newlength\footermargin
-\setlength\footermargin{.5\footerheight}
-\addtolength\footermargin{-.5\footercontentheight}
+\setnewlength{\footervmargin}{.5\footerheight-.5\footercontentheight}
+\setnewlength{\footerhmargin}{\footervmargin}
 
 \draw[color=LDtextborder,fill=black!65] ($(current page.south west)+(-\safetymargin,-\safetymargin)$) rectangle ($(current page.south east)+(\safetymargin,\footerheight)$);
-\node at ($(current page.south east)+.5*(-\footerheight,\footerheight)$) {
+\node [left,inner sep=0pt] at ($(current page.south east)+(-\footerhmargin,.5\footerheight)$) {
   \qrcode<\footercontentheight>[white]{http://sscdelft.github.io}};
-\node [left,inner sep=0pt,white] at ($(current page.south east)+(-\footerheight,.5\footerheight)$) {%
+\node [left,inner sep=0pt,white] at ($(current page.south east)+(-\footerhmargin-\footervmargin-\footercontentheight,.5\footerheight)$) {%
   \ttfamily\fontsize{40}{45}\selectfont%
   \begin{tabular}{@{}r@{}}
     @SSC\_Delft\\
@@ -170,13 +170,13 @@
     http://sscdelft.github.io
   \end{tabular}};
 \node [right,inner sep=0pt] at ($(current page.south west)+(0cm,.5\footerheight)$) {%
-  \hspace{3\footermargin}%
+  \hspace{3\footervmargin}%
   \includegraphics[height=\footercontentheight]{tudelft}%
-  \hspace{3\footermargin}%
+  \hspace{3\footervmargin}%
   \includegraphics[height=\footercontentheight]{siam}%
 };
 
-\node [color=black!65,above left,inner sep=0pt] at ($(current page.south east)+(-\footermargin,\footerheight)+(0pt,.25\footermargin)$) {%
+\node [color=black!65,above left,inner sep=0pt] at ($(current page.south east)+(-\footerhmargin,\footerheight+.25\footervmargin)$) {%
   \fontsize{20}{35}\selectfont%
   Theme based on Matt Graham's \emph{Leap Day}.};
 
@@ -236,7 +236,7 @@
 
 \end{textbox}
 
-\begin{textbox}(pictures) at ($(contents chapters.south west)+(0cm,-17.0cm)$) [below right] <75.3cm>
+\begin{textbox}(pictures) at ($(contents activities.south west)+(0cm,0cm)$) [below right] <75.3cm>
 {}
  \includegraphics[height=9.5cm]{library1} \hfill
  \includegraphics[height=9.5cm]{manuel_pres} \hfill
