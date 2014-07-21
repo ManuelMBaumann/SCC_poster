@@ -135,6 +135,11 @@
     \egroup}
 \fi
 
+% misc
+
+\renewcommand{\emph}[1]{%
+  {\color{LDblue}#1}}
+
 \pagestyle{empty}
 
 \begin{document}%
@@ -178,26 +183,26 @@
 
 \node [color=black!65,above left,inner sep=0pt] at ($(current page.south east)+(-\footerhmargin,\footerheight+.25\footervmargin)$) {%
   \fontsize{20}{35}\selectfont%
-  Theme based on Matt Graham's \emph{Leap Day}.};
+  Theme based on Matt Graham's \textit{Leap Day}.};
 
 % content
 
 \begin{textbox}(siam) at ($(current page.north west)+(3cm,-22cm)$) [below right] <45cm>
 {Society for Industrial and Applied Mathematics}
 
-  The \emph{Society for Industrial and Applied Mathematics (SIAM)} is an
+  The \textit{Society for Industrial and Applied Mathematics (SIAM)} is an
   international community of over 13,000 individual members.  Almost 500
   academic, manufacturing, research and development, service and consulting
   organizations, government, and military organizations worldwide are
   institutional members. The goals are:
 
   \begin{itemize}
-    \item To advance the {\color{LDblue}application of mathematics and computational
+    \item To advance the \emph{application of mathematics and computational
     science} to engineering, industry, science, and society.
-    \item To {\color{LDblue}promote research} that will lead to effective new
+    \item To \emph{promote research} that will lead to effective new
     mathematical and computational methods and techniques for science,
     engineering, industry, and society.
-    \item To {\color{LDblue}provide media for the exchange of information} and ideas
+    \item To \emph{provide media for the exchange of information} and ideas
     among mathematicians, engineers, and scientists.
   \end{itemize}
 
@@ -206,17 +211,17 @@
 \begin{textbox}(chapters) at ($(contents siam.south west)+(0cm,-2cm)$) [below right] <45cm>
 {SIAM Student Chapters}
 
-  A \emph{SIAM student chapter} resides at one or more colleges or
+  A \textit{SIAM student chapter} resides at one or more colleges or
   universities, and ideally involves students and faculty members from
   different departments.  The purpose of a chapter is to generate interest in
   applied mathematics and computational science by providing students
   opportunities to:
   \begin{itemize}
-    \item {\color{LDblue}Share ideas and enthusiasm} with fellow students and faculty
+    \item \emph{Share ideas and enthusiasm} with fellow students and faculty
     from any relevant department on campus,
-    \item Explore {\color{LDblue}career opportunities},
-    \item Make {\color{LDblue}contacts} that will last a lifetime and to
-    \item Develop {\color{LDblue}leadership skills}.
+    \item Explore \emph{career opportunities},
+    \item Make \emph{contacts} that will last a lifetime and to
+    \item Develop \emph{leadership skills}.
   \end{itemize}
 
 \end{textbox}
@@ -228,10 +233,10 @@
     \end{tikzpicture}
   We are planing a couple of events:
   \begin{itemize}
-    \item {\color{LDblue}Seminars and lectures} for and by PhD students,
-    \item Student {\color{LDblue}Krylov Day} at TU Delft,
-    \item Learning-by-doing sessions on software tools [ba{\color{LDblue}NaN}a talks],
-    \item {\color{LDblue}Company visits} and {\color{LDblue}socials events} like faculty BBQ, bowling, \dots
+    \item \emph{Seminars and lectures} for and by PhD students,
+    \item Student \emph{Krylov Day} at TU Delft,
+    \item Learning-by-doing sessions on software tools [ba\emph{NaN}a talks],
+    \item \emph{Company visits} and \emph{socials events} like faculty BBQ, bowling, \dots
    \end{itemize}
 
 \end{textbox}
@@ -252,7 +257,7 @@
   \includegraphics[width=\textwidth]{map}
 
   \begin{center}
-    The {\color{LDblue}first} SIAM student chapter in The Netherlands is installed at TU Delft.
+    The \emph{first} SIAM student chapter in The Netherlands is installed at TU Delft.
   \end{center}
 
 \end{textbox}
