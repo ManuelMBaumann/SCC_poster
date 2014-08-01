@@ -10,6 +10,7 @@
 %\usepackage{fontawesome}
 \usepackage{tikz}
 \usetikzlibrary{calc}
+\usetikzlibrary{fadings}
 \usepackage[hidelinks]{hyperref}
 
 % fonts
@@ -88,6 +89,9 @@
 \setnewlength\headeryellowbarlength{.8\paperwidth}
 \setnewlength\footerheight{.1\paperwidth}
 \setnewlength\footercontentheight{.6\footerheight}
+\setnewlength\photobarheight{.128\paperwidth}
+\setnewlength\photomargin{.01\paperwidth}
+\setnewlength\photobarbottommargin{.03\paperwidth}
 \setnewlength\textboxinnermargin{1em}
 
 % style colors
@@ -242,16 +246,6 @@
 
 \end{textbox}
 
-\begin{textbox}(pictures) at ($(contents activities.south west)+(0cm,0cm)$) [below right] <75.3cm>
-{}
- \includegraphics[height=9.5cm]{library1} \hfill
- \includegraphics[height=9.5cm]{manuel_pres} \hfill
- \includegraphics[height=9.5cm]{group} \hfill
- \includegraphics[height=9.5cm]{bbq} \hfill
- \includegraphics[height=9.5cm]{bowling} \hfill
- \includegraphics[height=9.5cm]{whiteboard1}
-\end{textbox}
-
 \begin{textbox}(map) at ($(current page.north east)+(-3cm,-22cm)$) [below left] <24.4cm>
 {SIAM chapters in Europe}
 
@@ -285,6 +279,31 @@
 
 \end{textbox}
 
+\begin{scope}[opacity=0.15,color=black]
+  \fill [path fading=south]
+    ($(current page.south west)+(-\safetymargin,\footerheight+\photobarbottommargin)$)
+    rectangle
+    ($(current page.south east)+(\safetymargin,\footerheight+\photobarbottommargin-\photomargin)$);
+  \fill
+    ($(current page.south west)+(-\safetymargin,\footerheight+\photobarbottommargin)$)
+    rectangle
+    ($(current page.south east)+(\safetymargin,\footerheight+\photobarbottommargin+\photobarheight-\photomargin)$);
+  \fill [path fading=north]
+    ($(current page.south west)+(-\safetymargin,\footerheight+\photobarbottommargin+\photobarheight-\photomargin)$)
+    rectangle
+    ($(current page.south east)+(\safetymargin,\footerheight+\photobarbottommargin+\photobarheight)$);
+\end{scope}
+\node[above,inner sep=0pt] at ($(current page.south)+(0pt,\footerheight+\photobarbottommargin)$) {%
+  \includegraphics[height=\photobarheight]{library1}%
+  \hspace{\photomargin}%
+  \includegraphics[height=\photobarheight]{group}%
+  \hspace{\photomargin}%
+  \includegraphics[height=\photobarheight]{bowling}%
+  \hspace{\photomargin}%
+  \includegraphics[height=\photobarheight]{whiteboard1}%
+  \hspace{\photomargin}%
+  \includegraphics[height=\photobarheight]{bbq2}%
+};
 
 \end{tikzpicture}%
 \end{document}
